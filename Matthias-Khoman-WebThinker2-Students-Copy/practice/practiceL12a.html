@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice HTML</title>
+    <link href="script/bootstrap.css" rel="stylesheet">
+    <script src="script/jquery.min.js"></script>
+    <script src="script/bootstrap.js"></script>
+    <style>
+        /* Add your custom CSS here */
+        .top-left-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <a href="../index.html" class="btn btn-primary top-left-button">Back to Index</a>
+    </div>
+    <br>
+    <!-- Start your HTML code here -->
+    <div>
+        <h3>Order for fruits</h3>
+        <form class="form-control">
+            <div class = "row">
+                <div class = "col">
+                    <label>"Fruit"</label>
+                    <select>
+                        <option>
+                            //append our options here//
+                        </option>
+                    </select>
+                </div> 
+                <div class="col">
+                    <label>"Quantity"</label>
+                    <select>
+                        <option>
+                            //append our options here//
+                        </option>
+                    </select>
+                </div>
+            
+            </div>
+        </form>
+    </div>
+    <!-- End your HTML code here -->
+    <script>
+        let fruits = ["Apple", "Orange", "Banana", "Pineapple"]
+        let price = ["$0.80", "$1.45", "$3.25", "$2.85"]
+        // for(let i=0; i<fruits.length; i++){
+        //     console.log("The price of " + fruits[i] + " is " + price[i])
+        // }
+        // //Pineapple go no more//
+        // fruits.pop()
+        // price.pop()
+        // console.log(fruits)
+        // console.log(price)
+        // ////
+        // //stop apple//
+        // fruits.shift()
+        // price.shift()
+        // console.log(fruits)
+        // console.log(price)
+        // ////
+        // //Durian//
+        // fruits.push("Durian")
+        // price.push("$12")
+        // console.log(fruits)
+        // console.log(price)
+        // ////
+        // //Coconut//
+        // fruits.unshift("Coconut")
+        // price.unshift("$3.95")
+        // console.log(fruits)
+        // console.log(price)
+        // ////
+        while(true){
+            let jimmy = prompt("What fruits would you like to buy?");
+            if(fruits.indexOf(jimmy)!=-1){
+                console.log('The price of ' + fruits[fruits.indexOf(jimmy) + " is " + price[fruits.indexOf(jimmy)]]);
+
+            }
+            else if(fruits.indexOf(jimmy)==-1){
+                console.log("Out of Stock!");
+            }
+            if(jimmy.toLowerCase() == "stop")
+            {
+                break;
+            }
+
+            
+
+        }
+        // Add your custom JavaScript here
+    </script>
+</body>
+</html>
