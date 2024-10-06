@@ -6,6 +6,7 @@
 	<title>Class 3 Website</title>
 	<script src="script/jquery.min.js"></script>
 	<script src="script/bootstrap.js"></script>
+	<script src="script/hangman.js" defer></script>
 	<link href="script/bootstrap.css" rel="stylesheet" />
 	<link href="script/hangman.css" rel="stylesheet" />
 	<link href="img/favicon-c3.png" rel="icon" />
@@ -36,6 +37,27 @@
 			<h2 class="text-center fw-normal">Can you guess the word I'm thinking?</h2>
 		</div>
 		<!-- Start of coding region -->
+		 <div class="row">
+			<div class="col">
+				<img id="life" src="img/hangman-7.svg" alt="hangman">
+			</div>
+			<div class="col">
+				<div id="hint">
+
+				</div>
+				<div>
+					<p>incorrect guesses:<span id="incorrectGuesses"></span></p>
+				</div>
+				<div>
+					<input class="form-control" type="text" id="guessinput" maxlength="1" placeholder="Enter a letter">
+					<button onclick="SubmitGuess()" class="btn btn-primary">Submit</button>
+
+				</div>
+				<div>
+					<button oonclick = "newGame()">New Game</button>
+				</div>
+			</div>
+		 </div>
 		
 		<!-- End of coding region -->
 	</article>

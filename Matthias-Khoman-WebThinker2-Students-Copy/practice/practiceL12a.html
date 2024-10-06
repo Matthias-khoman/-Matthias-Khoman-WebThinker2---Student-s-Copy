@@ -24,32 +24,89 @@
     <!-- Start your HTML code here -->
     <div>
         <h3>Order for fruits</h3>
-        <form class="form-control">
+        <form id="orderform">
             <div class = "row">
                 <div class = "col">
-                    <label>"Fruit"</label>
-                    <select>
-                        <option>
-                            //append our options here//
-                        </option>
+                    <label>Fruit</label>
+                    <select class="form-control" id="fruitselect">
+                        <!-- append in script -->
                     </select>
                 </div> 
                 <div class="col">
-                    <label>"Quantity"</label>
-                    <select>
-                        <option>
-                            //append our options here//
-                        </option>
-                    </select>
+                    <label>Quantity</label>
+                    <input type="number" class = "form-control" id="quantityinput" min="1" placeholder="Enter quantity">
                 </div>
-            
+                <div class="col-1 align-self-end">
+                    <button type="submit" class="btn btn-success">Submit Order</button>
+
+                </div>
             </div>
         </form>
     </div>
+
+    <div>
+        <h3>Invoice</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Fruit</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+            <tbody id="invoiceTableBody">
+                <!--append rows using script-->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" class="text-right">Grand Total</td>
+                    <td id="grandTotal">$0.00</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
     <!-- End your HTML code here -->
     <script>
-        let fruits = ["Apple", "Orange", "Banana", "Pineapple"]
-        let price = ["$0.80", "$1.45", "$3.25", "$2.85"]
+        let fruits = ["Apple", "Orange", "Banana", "Pineapple","Mango","Grapes"];
+        let price = [0.80, 1.45, 0.75, 2.85, 1.50, 2.00];
+        for (let i =0; i<fruits.length; i++){
+            $('#fruitselect').append('<option>' + fruits[i] + '</option>')
+        }
+        
+        $('#orderform').submit(function(event){
+            event.preventDefault();
+            let fruit = $('#fruitselect').val();
+            let quantity = $('#quantityinput').val();
+
+            if(quantity>0 && fruit!=null){
+                let unitprice = price[fruits.indexOf(fruit)]
+                let totalprice = unitprice * quantity
+            
+
+                let invoiceRow = '<tr>'+
+                    '<td>' + ($('#invoiceTableBody tr').length +1) + '</td>' +
+                    '<td>' + fruit + '</td>' +
+                    '<td>' + quantity + '</td>' +
+                    '<td>' + unitprice.toFixed(2) + '</td>' +
+                    '<td>' + totalprice.toFixed(2) + '</td> ' +
+                    '</tr>';
+                    $('#invoiceTableBody').append(invoiceRow);
+                    updateGrandTotal();
+            }
+            
+            });
+
+            function updateGrandTotal() {
+                let grandtotal = 0;
+                $('#invoiceTableBody tr').each(function(){
+                    let totalprice = parseFloat($(this).find('td').eq(4).text().replace('$', ''));
+                    grandtotal += totalprice;
+                });
+                $('#grandTotal').text('$' + grandtotal.toFixed(2))
+            }
+
         // for(let i=0; i<fruits.length; i++){
         //     console.log("The price of " + fruits[i] + " is " + price[i])
         // }
@@ -77,23 +134,20 @@
         // console.log(fruits)
         // console.log(price)
         // ////
-        while(true){
-            let jimmy = prompt("What fruits would you like to buy?");
-            if(fruits.indexOf(jimmy)!=-1){
-                console.log('The price of ' + fruits[fruits.indexOf(jimmy) + " is " + price[fruits.indexOf(jimmy)]]);
+        // while(true){
+        //     let jimmy = prompt("What fruits would you like to buy?");
+        //     if(fruits.indexOf(jimmy)!=-1){
+        //         console.log('The price of ' + fruits[fruits.indexOf(jimmy) + " is " + price[fruits.indexOf(jimmy)]]);
 
-            }
-            else if(fruits.indexOf(jimmy)==-1){
-                console.log("Out of Stock!");
-            }
-            if(jimmy.toLowerCase() == "stop")
-            {
-                break;
-            }
-
-            
-
-        }
+        //     }
+        //     else if(fruits.indexOf(jimmy)==-1){
+        //         console.log("Out of Stock!");
+        //     }
+        //     if(jimmy.toLowerCase() == "stop")
+        //     {
+        //         break;
+        //     }
+        // }
         // Add your custom JavaScript here
     </script>
 </body>
