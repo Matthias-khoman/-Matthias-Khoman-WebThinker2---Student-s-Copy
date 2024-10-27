@@ -34,7 +34,7 @@
 		<!-- Page Header -->
 		<div class="container pt-4 py-3">
 			<h1 class="text-center fw-bold display-4">Hangman Game</h1>
-			<h2 class="text-center fw-normal">Can you guess the word I'm thinking?</h2>
+			<h2 class="text-center fw-bold">Can you guess the word I'm thinking?</h2>
 		</div>
 		<!-- Start of coding region -->
 		 <div class="row">
@@ -50,12 +50,14 @@
 				</div>
 				<div>
 					<input class="form-control" type="text" id="guessinput" maxlength="1" placeholder="Enter a letter">
-					<button onclick="SubmitGuess()" class="btn btn-primary">Submit</button>
+					<button onclick="SubmitGuess()" id = "submitButton" class="btn btn-primary">Submit</button>
 
 				</div>
 				<div>
-					<button oonclick = "newGame()">New Game</button>
+					<button onclick = "newGame()"> New Game </button>
 				</div>
+
+				<div id = "winOrLose"> </div>
 			</div>
 		 </div>
 		

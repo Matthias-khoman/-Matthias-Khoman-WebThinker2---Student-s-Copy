@@ -14,16 +14,18 @@ const keyPress = (key) => {
                 //update hint
                 for(let i=0;i<word.length;i++){
                     if (word[i] == ' '){
-                        $('#hint').append('<div>' + 'space' + '</div>');
+                        $('#hint').append('<div class = "card border fs-4 fw-bold p-3 m-1">' + 'space' + '</div>');
                     }else if(guess.indexOf(word[i])!=-1){
-                        $('#hint').append('<div>' + word[i] + '</div>');
+                        $('#hint').append('<div class = "card border fs-4 fw-bold p-3 m-1" >' + word[i] + '</div>');
                     }else{
-                        $('#hint').append('<div>' + "_"  + '</div>')
+                        $('#hint').append('<div class = "card border fs-4 fw-bold p-3 m-1" >' + "_"  + '</div>')
                         found = false;
                     }
                 }
                 if (found){
                     console.log('Player has Won');
+                    $("#submitButton").hide()
+                    $('#winOrLose').append(' <p> You Won </p>');
                 }
             }
             else{
@@ -33,6 +35,7 @@ const keyPress = (key) => {
                 $('#incorrectGuesses').html(incorrectGuesses.join(",  "))
                 if(life ==0){
                     console.log('Player has lost');
+                    endGame()
                 }
             }
         }
@@ -53,3 +56,11 @@ const SubmitGuess = () => {
     }
 }
 
+const newGame = () => {
+    location.reload();
+}
+
+const endGame = () => {
+    $('#submitButton').hide()
+    $("#winOrLose").append('<p> You Lost </p>')
+}
