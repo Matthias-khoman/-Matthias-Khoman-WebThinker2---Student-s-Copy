@@ -10,6 +10,23 @@
 	<link href="script/bootstrap.css" rel="stylesheet" />
 	<link href="script/hangman.css" rel="stylesheet" />
 	<link href="img/favicon-c3.png" rel="icon" />
+
+	<style>
+		.card {
+			display: inline-flex;
+			width: 30px;
+			height: 40px;
+			text-align: center;
+			align-items: center;
+			justify-content: center;
+			font-size: 24px;
+			border: 5px solid black;
+			border-radius: 5px;
+			background-color: aliceblue;
+			box-shadow: 2px 2px 5px;
+		}
+	</style>
+
 </head>
 <body class="bg-secondary bg-opacity-10" style="min-width:320px">
 	<header>
@@ -42,7 +59,7 @@
 				<img id="life" src="img/hangman-7.svg" alt="hangman">
 			</div>
 			<div class="col">
-				<div id="hint">
+				<div id="hint" class = "row" style = "gap: 10px;">
 
 				</div>
 				<div>
@@ -50,11 +67,11 @@
 				</div>
 				<div>
 					<input class="form-control" type="text" id="guessinput" maxlength="1" placeholder="Enter a letter">
-					<button onclick="SubmitGuess()" id = "submitButton" class="btn btn-primary">Submit</button>
+					<button onclick="SubmitGuess()" id = "submitButton" class="btn btn-outline-success">Submit</button>
 
 				</div>
 				<div>
-					<button onclick = "newGame()"> New Game </button>
+					<button class="btn btn-outline-primary" onclick = "newGame()"> New Game </button>
 				</div>
 
 				<div id = "winOrLose"> </div>
@@ -63,7 +80,7 @@
 		
 		<!-- End of coding region -->
 	</article>
-	<footer class="bg-dark text-light">
+	<footer class="bg-success text-light">
 		<div class="container py-2 pb-4">Done by Computhink Kids SG.</div>
 	</footer>
 </body>

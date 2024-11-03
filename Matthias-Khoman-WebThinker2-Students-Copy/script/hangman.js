@@ -3,6 +3,13 @@ const word = words[Math.floor(Math.random()*words.length)];
 let guess = [];
 let life = 7;
 let incorrectGuesses = [];
+for(let i=0; i < word.length; i++) {
+    if(word[i] === " ") {
+        $('#hint').append('div class="card border fs-4 fw-bold col"> </div>')
+    } else {
+        $('#hint').append('<div class="card border fs-4 fw-bold col">_</div>')
+    }
+}
 
 const keyPress = (key) => {
         if(guess.indexOf(key) == -1){
@@ -13,19 +20,19 @@ const keyPress = (key) => {
                 let found = true;
                 //update hint
                 for(let i=0;i<word.length;i++){
-                    if (word[i] == ' '){
-                        $('#hint').append('<div class = "card border fs-4 fw-bold p-3 m-1">' + 'space' + '</div>');
+                    if (word[i] == " "){
+                        $('#hint').append('<div class = "card border fs-4 fw-bold p-3 m-1 col">'+''+ '</div>');
                     }else if(guess.indexOf(word[i])!=-1){
-                        $('#hint').append('<div class = "card border fs-4 fw-bold p-3 m-1" >' + word[i] + '</div>');
+                        $('#hint').append('<div class = "card border fs-4 fw-bold p-3 m-1 col" >' + word[i] + '</div>');
                     }else{
-                        $('#hint').append('<div class = "card border fs-4 fw-bold p-3 m-1" >' + "_"  + '</div>')
+                        $('#hint').append('<div class = "card border fs-4 fw-bold p-3 m-1 col" >' + "_"  + '</div>')
                         found = false;
                     }
                 }
                 if (found){
                     console.log('Player has Won');
                     $("#submitButton").hide()
-                    $('#winOrLose').append(' <p> You Won </p>');
+                    $('#winOrLose').append(' <p> You won with ' + life + ' lives left </p>');
                 }
             }
             else{
@@ -37,6 +44,7 @@ const keyPress = (key) => {
                     console.log('Player has lost');
                     endGame()
                 }
+                
             }
         }
 
@@ -52,7 +60,7 @@ const SubmitGuess = () => {
         $("#guessInput").val('');
     }
     else{
-        alert('Please Enter  valid letter')
+        alert('Please Enter a valid letter')
     }
 }
 
