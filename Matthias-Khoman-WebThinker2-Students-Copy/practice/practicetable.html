@@ -122,10 +122,74 @@
             <th colspan="3">Sekai Taikai Cobra Kai Team</th>
         </tr>
     </table>
+    <table class="table table-bordered table-striped table-hover">
+        <tr>
+            <th colspan="3" id="name">Team </th>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Dojo</th>
+        </tr>
+        <tr>
+            <td id="member_1"></td>
+            <td id="position"></td>
+            <td id="dojo"></td>
+        </tr>
+        <tr>
+            <td id="member_2"></td>
+            <td id="position_2"></td>
+            <td id="hawk"></td>
+        </tr>
+        <tr>
+            <td id="member_3"></td>
+            <td id="position_3"></td>
+            <td id="dojo_title"></td>
+        </tr>
+        <tr>
+            <td id="member_4"></td>
+            <td id="position_4"></td>
+            <td id="dojo_name"></td>
+        </tr>
+        <tr>
+            <th colspan="3" id="teamname">Sekai Taikai Team </th>
+        </tr>
+    </table>
+    <button class="btn btn-success" onclick="submit()">Submit</button>
     <!-- End your HTML code here -->
 
     <script>
         // Add your custom JavaScript here
+        let name = prompt('Enter team name')
+        // Member 1
+        $('#name').append(name)
+        let member_1 = prompt('Enter your first team member')
+        $('#member_1').append(member_1)
+        let position = prompt('Enter their position')
+        $('#position').append(position)
+        $('#dojo').append(name)
+        // Member 2
+        let member_2 = prompt('Enter your Second team member')
+        $('#member_2').append(member_2)
+        let position_2 = prompt('Enter their position')
+        $('#position_2').append(position_2)
+        $('#hawk').append(name)
+        // Member 3
+        let member_3 = prompt('Enter your third team member')
+        $('#member_3').append(member_3)
+        let position_3 = prompt('Enter their position')
+        $('#position_3').append(position_3)
+        $('#dojo_title').append(name)
+        // Member 4
+        let member_4 = prompt('Enter your fourth team member')
+        $('#member_4').append(member_4)
+        let position_4 = prompt('Enter their position')
+        $('#position_4').append(position_4)
+        $('#dojo_name').append(name)
+        let submit = () => {
+            alert('Team entered')
+        } 
+        $('#teamname').append(name)
     </script>
 </body>
 </html>
