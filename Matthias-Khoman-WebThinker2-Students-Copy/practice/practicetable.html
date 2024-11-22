@@ -23,8 +23,8 @@
     <br>
     <!-- Start your HTML code here -->
     <div>
-        <h1 class="text-center">Sekai Taikai</h1>
-        <p class="text-center">Best of the Best</p>
+        <h1 class="text-center bg-primary">Sekai Taikai</h1>
+        <p class="text-center bg-danger">Best of the Best</p>
     </div>
     <table class="table table-striped table-hover table-bordered">
         <tr>
@@ -81,6 +81,19 @@
             <td>Miyagi-Do/Eagle Fang</td>
         </tr>
         <tr>
+            <th colspan="3">Subsitutes</th>
+        </tr>
+        <tr>
+            <td>Kenny Payne</td>
+            <td>Member</td>
+            <td>Miyagi-Do</td>
+        </tr>
+        <tr>
+            <td>Anthony Larusso</td>
+            <td>Member</td>
+            <td>Miyagi-Do</td>
+        </tr>
+        <tr>
             <th colspan="3">Sekai Taikai Miyagi-Do Team</th>
         </tr>
     </table>
@@ -104,7 +117,7 @@
             <td>Cobra Kai</td>
         </tr>
         <tr>
-            <td>Kwon Jae Sung</td>
+            <td>Kwon Jae-Sung</td>
             <td>Team Captain</td>
             <td>Cobra Kai</td>
         </tr>
@@ -114,7 +127,7 @@
             <td>Cobra Kai</td>
         </tr>
         <tr>
-            <td>Yoon Do Jin</td>
+            <td>Yoon Do-Jin</td>
             <td>Member</td>
             <td>Cobra Kai</td>
         </tr>
@@ -152,6 +165,11 @@
             <td id="dojo_name"></td>
         </tr>
         <tr>
+            <td id="member_5"></td>
+            <td id="position_5"></td>
+            <td id="dojo_call"></td>
+        </tr>
+        <tr>
             <th colspan="3" id="teamname">Sekai Taikai Team </th>
         </tr>
     </table>
@@ -163,31 +181,36 @@
         let name = prompt('Enter team name')
         // Member 1
         $('#name').append(name)
-        let member_1 = prompt('Enter your first team member')
+        let member_1 = prompt('Enter your Sensei"s name')
         $('#member_1').append(member_1)
         let position = prompt('Enter their position')
         $('#position').append(position)
         $('#dojo').append(name)
         // Member 2
-        let member_2 = prompt('Enter your Second team member')
+        let member_2 = prompt('Enter your first team member')
         $('#member_2').append(member_2)
         let position_2 = prompt('Enter their position')
         $('#position_2').append(position_2)
         $('#hawk').append(name)
         // Member 3
-        let member_3 = prompt('Enter your third team member')
+        let member_3 = prompt('Enter your second team member')
         $('#member_3').append(member_3)
         let position_3 = prompt('Enter their position')
         $('#position_3').append(position_3)
         $('#dojo_title').append(name)
         // Member 4
-        let member_4 = prompt('Enter your fourth team member')
+        let member_4 = prompt('Enter your third team member')
         $('#member_4').append(member_4)
         let position_4 = prompt('Enter their position')
         $('#position_4').append(position_4)
         $('#dojo_name').append(name)
+        let member_5 = prompt('Enter your fourth team member')
+        $('#member_5').append(member_5)
+        let position_5 = prompt('Enter their position')
+        $('#position_5').append(position_5)
+        $('#dojo_call').append(name)
         let submit = () => {
-            alert('Team entered')
+            alert('Hi Team ' + name + ' entered Welcome to the Sekai Taikai')
         } 
         $('#teamname').append(name)
     </script>
